@@ -22,7 +22,7 @@ collectd-gluster-moduleargh:
         mkdir /tmp/foo
         cd /tmp/foo
         git clone https://github.com/gluster/gluster-collectd.git
-        mkdir {{ collectd_settings.moduledirconfig }}/gluster-collectd
+        mkdir -p {{ collectd_settings.moduledirconfig }}/gluster-collectd
         cp gluster-collectd/src/*.py  {{ collectd_settings.moduledirconfig }}/gluster-collectd/
         cp gluster-collectd/types/types.db.gluster /usr/share/collectd/types.db.gluster
   
