@@ -2,21 +2,30 @@
 
 include:
   - collectd
-  - collectd.python
 
-python-pip:
-  pkg.installed
+# mah...
+# https://github.com/saltstack/salt/issues/40048
+python2_pip_package:
+  pkg:
+    - installed
+    - name: python2-pip
+
+python3_pip_package:
+  pkg:
+    - installed
+    - name: python3-pip
 
 collectd-gluster-module:
   pip.installed:
+    - require:
+      - pkg: python3_pip_package
+        - bin_env: '/usr/bin/pip3'
     - name: collectd
     - name: psutil == 5.4.0
     - require_in:
       - service: collectd-service
     - watch_in:
       - service: collectd-service
-    - require:
-      - pkg: python-pip
   cmd.run:
     - name: |
         rm -rf /tmp/foo
