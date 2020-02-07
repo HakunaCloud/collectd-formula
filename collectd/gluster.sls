@@ -28,7 +28,7 @@ collectd-gluster-module:
         cp gluster-collectd/types/types.db.gluster /usr/share/collectd/types.db.gluster
   
   
-  {{ collectd_settings.plugindirconfig }}/gluster.conf:
+{{ collectd_settings.plugindirconfig }}/gluster.conf:
   file.managed:
     - source: salt://collectd/files/gluster.conf
     - user: {{ collectd_settings.user }}
