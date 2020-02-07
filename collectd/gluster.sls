@@ -4,7 +4,7 @@ include:
   - collectd
   - collectd.python
 
-python3-pip:
+python-pip:
   pkg.installed
 
 collectd-gluster-module:
@@ -16,7 +16,7 @@ collectd-gluster-module:
     - watch_in:
         - service: collectd-service
     - require:
-        - pkg: python3-pip
+        - pkg: python-pip
   
   cmd.run:
     - name: |
