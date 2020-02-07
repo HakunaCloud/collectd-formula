@@ -15,11 +15,11 @@ python3_pip_package:
     - installed
     - name: python3-pip
 
-collectd-gluster-module:
+collectd-gluster-modulezz:
   pip.installed:
     - require:
       - pkg: python3_pip_package
-        - bin_env: '/usr/bin/pip3'
+        - bin_env: '/bin/pip3'
     - name: collectd
     - name: psutil == 5.4.0
     - require_in:
