@@ -7,7 +7,7 @@ include:
 python-pip:
   pkg.installed
 
-collectd-gluster-module:
+collectd-gluster-modulez:
   pip.installed:
     - name: collectd
     - name: psutil == 5.4.0
@@ -17,7 +17,6 @@ collectd-gluster-module:
         - service: collectd-service
     - require:
         - pkg: python-pip
-  
   cmd.run:
     - name: |
         rm -rf /tmp/foo
