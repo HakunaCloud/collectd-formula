@@ -3,23 +3,13 @@
 include:
   - collectd
 
-# mah...
-# https://github.com/saltstack/salt/issues/40048
-python2_pip_package:
-  pkg:
-    - installed
-    - name: python2-pip
+python-pip:
+  pkg.installed
 
-python3_pip_package:
-  pkg:
-    - installed
-    - name: python3-pip
-
-collectd-gluster-modulezz:
+collectd-gluster-moduleargh:
   pip.installed:
     - require:
-      - pkg: python3_pip_package
-        - bin_env: '/bin/pip3'
+      - pkg: python-pip
     - name: collectd
     - name: psutil == 5.4.0
     - require_in:
